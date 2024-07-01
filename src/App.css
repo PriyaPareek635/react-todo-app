@@ -1,6 +1,6 @@
+/* App.css */
 .App {
-  text-align: center;
-  max-width: 600px;
+  max-width: 1320px;
   margin: auto;
   padding: 20px;
 }
@@ -9,7 +9,7 @@ form {
   margin-bottom: 20px;
 }
 
-input, textarea {
+input, textarea, select {
   width: calc(100% - 20px);
   margin-bottom: 10px;
   padding: 10px;
@@ -19,4 +19,130 @@ button {
   padding: 10px 20px;
   margin: 5px;
   cursor: pointer;
+}
+
+.task-sections {
+  display: flex;
+  flex-wrap: wrap;
+  /* Allow sections to wrap on smaller screens */
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.task-section {
+  flex: 1 1 300px;
+  /* Adjust flex properties as needed */
+  margin: 0 10px;
+  padding: 10px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  /* Add margin between sections */
+}
+
+.task-section h2 {
+  margin-top: 0;
+}
+
+.task-list {
+  margin-top: 10px;
+}
+
+.task {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.task.completed {
+  background-color: #e0e0e0;
+}
+
+.task-actions button {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.edit-form {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.ellipsis-menu {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.ellipsis {
+  width: 6px;
+  height: 6px;
+  background-color: #333;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 3px;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 120px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content button {
+  color: #333;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  background-color: transparent;
+  border: none;
+  width: 100%;
+  text-align: left;
+}
+
+.dropdown-content button:hover {
+  background-color: #ddd;
+}
+
+.ellipsis-menu:hover .dropdown-content {
+  display: block;
+}
+
+.priority {
+  border-radius: 8px;
+  display: inline-block;
+  color: white;
+  padding: 4px;
+  margin: 0;
+}
+
+.medium-priority {
+  background-color: orange;
+  border: 1px solid orange;
+}
+
+.high-priority {
+  background-color: red;
+  border: 1px solid red;
+}
+
+.low-priority {
+  background-color: green;
+  border: 1px solid green;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+  .task-section {
+    flex: 1 1 100%;
+    /* Full width on smaller screens */
+  }
 }

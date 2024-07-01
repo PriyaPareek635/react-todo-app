@@ -1,32 +1,42 @@
 import React, { useState } from 'react';
 
-const TaskForm = ({ onAdd }) => {
-  const [title, setTitle] = useState('');
-  const [description, setDescription] = useState('');
+const TaskForm = ({ onSubmit, initialValues }) => {
+  const [task, setTask] = useState(initialValues || { title: '', description: '', priority: 'medium' });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setTask({ ...task, [name]: value });
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onAdd({ title, description });
-    setTitle('');
-    setDescription('');
+    onSubmit(task);
+    setTask({ title: '', description: '', priority: 'medium' });
   };
 
   return (
     <form onSubmit={handleSubmit}>
       <input
         type="text"
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
+        name="title"
+        value={task.title}
+        onChange={handleChange}
         placeholder="Task Title"
         required
       />
       <textarea
-        value={description}
-        onChange={(e) => setDescription(e.target.value)}
+        name="description"
+        value={task.description}
+        onChange={handleChange}
         placeholder="Task Description"
         required
       ></textarea>
-      <button type="submit">Add Task</button>
+      <select name="priority" value={task.priority} onChange={handleChange}>
+        <option value="high">High</option>
+        <option value="medium">Medium</option>
+        <option value="low">Low</option>
+      </select>
+      <button type="submit">Submit</button>
     </form>
   );
 };

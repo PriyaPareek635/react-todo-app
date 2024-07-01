@@ -12,6 +12,12 @@ code {
     monospace;
 }
 
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 0fr;
+  gap: 10px;
+}
+
 .flex {
   display: flex;
 }
